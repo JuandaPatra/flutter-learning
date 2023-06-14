@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-import 'home.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +16,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Grid View'),
+          centerTitle: true,
+        ),
+        body: GridView(
+          padding: EdgeInsets.all(10),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              childAspectRatio: 4 / 3),
+          children: myList,
+        ),
+      ),
     );
   }
 }
