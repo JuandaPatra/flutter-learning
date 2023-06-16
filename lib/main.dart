@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
-import 'home.dart';
+import 'package:flutter_application_1/tutorial/day-4/pages/gallery_page.dart';
+import 'package:flutter_application_1/tutorial/day-4/pages/home_page.dart';
+import 'package:flutter_application_1/tutorial/day-4/pages/pages1.dart';
+import 'package:flutter_application_1/tutorial/day-4/pages/photo_page.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-//grid view
+//Navigation
 class MyApp extends StatelessWidget {
-  List<Container> myList = List.generate(
-      90,
-      (index) => Container(
-            color: Color.fromARGB(255, Random().nextInt(256),
-                Random().nextInt(256), Random().nextInt(256)),
-          ));
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
+      // home: PageSatu(),
+      home: HomePage(),
+      // initialRoute: '/homepage',
+      routes: {
+        '/homepage'   : (context)=>HomePage(),
+        '/gallery'    : (context) => GalleryPage(),
+        '/photo'       :(context) => PhotoPage()
+      },
     );
   }
 }
